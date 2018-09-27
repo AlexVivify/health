@@ -8,15 +8,14 @@ export default class Doctor extends Person {
     super(firstname, lastname)
     this.speciality = speciality
     this.patients = []
-    console.log(formater.format(new Date)+" Created doctor " + this.firstname + ' ' + this.lastname );
+    console.log(`${formater.format(new Date)} Created doctor  ${ this.firstname }  ${ this.lastname }`);
+
   }
 
   addPatient(patient){
-    if(this.patients.includes(patient)){
-      alert('Action denied, doctor already set for this patient!')
-    }else{
-      this.patients.push(patient)
-    }
+    this.patients.includes(patient)?
+    alert('Action denied, doctor already set for this patient!')
+    :this.patients.push(patient)
   }
 
   setExamination(examination, patient){

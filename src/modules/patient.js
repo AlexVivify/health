@@ -9,7 +9,7 @@ export default class Patient extends Person{
     this.jmbg = jmbg
     this.cartonId = cartonId
     this.examinations = []
-    console.log(formater.format(new Date)+" Created patient " + this.firstname + ' ' + this.lastname );
+    console.log(`${formater.format(new Date)} Created patient  ${this.firstname}  ${this.lastname} `);
   }
   setDoctor(doctor){
     if(this.doctor !== undefined){
@@ -18,23 +18,15 @@ export default class Patient extends Person{
       this.doctor = doctor
       var form  = new Intl.DateTimeFormat("de-DE")
 
-      console.log(form.format(new Date)+" Patient " + this.firstname + ' ' + ' have chosen doctor ' + this.doctor.firstname );
+      console.log(`${form.format(new Date)} Patient  ${this.firstname}  have chosen doctor ${this.doctor.firstname}`);
     }
 
   }
   getDoctor(){
-    if(this.doctor !== undefined){
-      return this.doctor
-    }else{
-      alert('Please choose a doctor!')
-    }
+    this.doctor !== undefined? this.doctor:alert('Please choose a doctor!')
   }
   setExamination(examination){
-    if(this.examinations.includes(examination)){
-      alert('Examination already scheduled')
-    }else{
-      this.examinations.push(examination)
-    }
+    this.examinations.includes(examination)?alert('Examination already scheduled!'):this.examinations.push(examination)
   }
 
   exacuteExamination(examination){

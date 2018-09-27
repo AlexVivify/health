@@ -14,3 +14,12 @@ export function simulate(examination){
    }
 }
 
+export class Message {
+    constructor(x){
+      this.value = x
+    }
+    set = function(x) {
+      this.value + x;
+    }
+}
+
